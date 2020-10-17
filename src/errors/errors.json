@@ -1,0 +1,12 @@
+{
+  "BAD_AUTH": {
+    "msg": "Hm, it doesn't seem like you're logged in... Please, login!",
+    "statusCode": 401,
+    "error": "Bad authentication"
+  },
+  "BAD_DATA": {
+    "msg": "Your input failed validation, please try again.",
+    "statusCode": 400,
+    "error": "Bad request"
+  }
+}
