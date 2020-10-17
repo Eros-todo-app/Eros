@@ -6,5 +6,10 @@
   "repository": "https://github.com/TitusEntertainment/todo-api",
   "author": "Eddie Englund <properllerbucher@gmail.com>",
   "license": "MIT",
-  "private": true
+  "private": true,
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.2"
+  }
 }
