@@ -3,6 +3,9 @@ const router = require("express").Router();
 const { verifyRegistrationInput } = require("./helpers/verifyUserInput");
 const errors = require("../../errors/errors.json");
 
+// TODO: add email verifaction
+// TODO: Hash passwords
+
 router.post("/register", async (req, res) => {
   const { email, password, name } = req.body;
   try {
