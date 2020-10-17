@@ -1,0 +1,15 @@
+# ENV
+*.env
+
+# Logs
+
+*.log
+*.txt
+*.error
+
+
+# Modules and dependencies
+
+dist
+node_modules
+

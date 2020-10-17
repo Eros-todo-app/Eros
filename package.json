@@ -1,0 +1,10 @@
+{
+  "name": "todo-api",
+  "version": "1.0.0",
+  "description": "Simple todo API",
+  "main": "index.js",
+  "repository": "https://github.com/TitusEntertainment/todo-api",
+  "author": "Eddie Englund <properllerbucher@gmail.com>",
+  "license": "MIT",
+  "private": true
+}
