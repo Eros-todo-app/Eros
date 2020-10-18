@@ -22,15 +22,14 @@ const verifyRegistrationInput = (_email, _password, _name) => {
     const name = _name.trim();
 
     try {
-      await verifyEmail(_email);
-      verifyPassword(_password);
+      const email = await verifyEmail(_email);
+      const password = await verifyPassword(_password);
+      if (!name.length > 1) return reject("Did you forget your name, ooor do you not have one?");
+
+      resolve({ email, password, name });
     } catch (error) {
       reject(error);
     }
-
-    if (!name.length > 1) return reject("Did you forget your name, ooor do you not have one?");
-
-    resolve({ email, password, name });
   });
 };
 
