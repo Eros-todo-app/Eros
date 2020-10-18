@@ -40,7 +40,7 @@ const init = async () => {
         sameSite: true,
         secure: IS_PROD,
       },
-      genid: function (req) {
+      genid: function () {
         return uuidv4();
       },
     })
