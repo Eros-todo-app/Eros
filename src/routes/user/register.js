@@ -14,7 +14,6 @@ router.post("/register", async (req, res) => {
     const emailExist = await getDB().users.findOne({ email: input.email });
     if (emailExist) return res.status(400).send({ field: "email", ...errors.BAD_DATA });
 
-    console.log(input);
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(input.password, salt);
 
