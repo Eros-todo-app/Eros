@@ -4,8 +4,6 @@ const { getDB } = require("../../db/db");
 const errors = require("../../errors/errors.json");
 const bcrypt = require("bcrypt");
 
-//TODO: Compare hashed password
-
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   try {
