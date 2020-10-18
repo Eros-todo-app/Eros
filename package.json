@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "nodemon src/index.js",
     "start": "node src/index.js",
-    "deploy": "pm2 src/index.js"
+    "deploy": "pm2-runtime start src/index.js --watch --name todo-api"
   },
   "devDependencies": {
     "nodemon": "^2.0.5"
