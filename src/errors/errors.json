@@ -16,5 +16,11 @@
     "statusCode": 400,
     "error": "Bad request",
     "success": false
+  },
+  "INTERNAL_SERVER_ERROR": {
+    "msg": "Yikes, something went wrong, please try again!",
+    "statusCode": 500,
+    "error": "Internal server error",
+    "success": false
   }
 }
