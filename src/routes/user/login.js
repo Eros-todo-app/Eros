@@ -14,7 +14,7 @@ router.post("/login", async (req, res) => {
     const validPass = await bcrypt.compare(userInput.password, data.password);
     if (!validPass) return res.status(400).send({ ...errors.BAD_LOGIN });
 
-    req.session.user = { ...data, isLoggedIn: true };
+    req.session.user = { isLoggedIn: true, ...data };
     return res.status(200).send({ success: true, msg: `Welcome ${req.session.user.name.split(" ")[0]}!` });
   } catch (field) {
     return res.status(400).send({ ...errors.BAD_DATA, field });
