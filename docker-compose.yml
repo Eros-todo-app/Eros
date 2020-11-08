@@ -11,18 +11,18 @@ services:
     image: redis:latest
     container_name: "redis_data_container"
     volumes:
-      - redis_data_container:/redis/data/db
+      - redis_data_volume:/redis/data/db
     environment:
       # ALLOW_EMPTY_PASSWORD is recommended only for development.
       - ALLOW_EMPTY_PASSWORD=yes
-      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL    
-    ports: 
-      -  6379:6379 
+      - REDIS_DISABLE_COMMANDS=FLUSHDB,FLUSHALL
+    ports:
+      -  6379:6379
   database:
     image: mongo:latest
-    container_name: "mongodb_data_container"    
+    container_name: "mongodb_data_container"
     volumes:
-        - mongodb_data_container:/mongodb/data/db
+        - mongodb_data_volume:/mongodb/data/db
     environment:
         - ALLOW_EMPTY_PASSWORD=yes
         #- MONGO_INITDB_ROOT_USERNAME=root
@@ -31,6 +31,6 @@ services:
     ports:
         - 27017:27017
 volumes:
-    redis_data_container:
+    redis_data_volume:
       driver: local
-    mongodb_data_container:
+    mongodb_data_volume:
