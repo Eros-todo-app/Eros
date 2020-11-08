@@ -1,4 +1,4 @@
-const { array, object, string, boolean } = require("yup");
+const { array, object, string, boolean, date } = require("yup");
 
 const todoSchema = object().shape({
   name: string().min(1).max(50).required(),
@@ -9,6 +9,7 @@ const todoSchema = object().shape({
     })
   ),
   description: string().min(1).max(255).required(),
+  due: date().optional(),
 });
 
 const verifyTodo = (todo) => {
