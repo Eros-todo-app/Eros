@@ -8,33 +8,28 @@ const { ObjectId } = require("mongodb");
 router.post("/create", verifyUser, async (req, res) => {
   const { todo } = req.body;
 
-  if (!req.session.user.todos) {
-    req.session.user.todos = [
-      {
-        name: todo.name,
-        todos: todo.items,
-      },
-    ];
-  } else {
-    req.session.user.todos.push(todo);
-  }
-
   try {
     await verifyTodo(todo);
   } catch (field) {
     return res.status(400).send({ field, ...errors.BAD_DATA });
   }
 
-  const data = await getDB().users.findOneAndUpdate(
-    { _id: ObjectId(req.session.user._id) },
-    { $addToSet: { todos: todo } },
-    {
-      returnOriginal: false,
-    }
-  );
+  if (!req.session.user.todos) {
+    req.session.user.todos = [todo];
+  } else {
+    req.session.user.todos.push(todo);
+  }
+
+  const data = await getDB().todos.insertOne({
+    ...todo,
+    userId: ObjectId(req.session.user._id),
+  });
+
+  if (data.result.ok !== 1)
+    return res.status(500).send({ ...errors.INTERNAL_SERVER_ERROR });
 
   return res.status(200).send({
-    ...data,
+    todo,
     success: true,
   });
 });

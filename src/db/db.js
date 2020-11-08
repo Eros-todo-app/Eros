@@ -13,11 +13,12 @@ class Database {
   connect() {
     return new Promise((resolve, reject) => {
       this.rootClient.connect((err, client) => {
-        if (err) return reject("Failed to connect to Databse", err);
+        if (err) return reject(`Failed to connect to database. Err: ${err}`);
         console.log(`Connected to databse: ${this.db_name}`);
 
         this.db = client.db(this.db_name);
         this.users = this.db.collection(config.collections.users);
+        this.todos = this.db.collection(config.collections.todos);
 
         resolve(this);
       });
