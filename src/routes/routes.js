@@ -1,12 +1,8 @@
-const userRegisterRouter = require("./user/register");
-const userLoginRouter = require("./user/login");
-const userLogoutRouter = require("./user/logout");
-const createTodoRouter = require("./todos/create");
-const editTodoRouter = require("./todos/edit");
-const deleteTodoRouter = require("./todos/delete");
+const { createTodoRouter, editTodoRouter, deleteTodoRouter } = require("./todos/index");
+const { deleteUserRouter, userRegisterRouter, userLoginRouter, userLogoutRouter } = require("./user/index");
 
 const setupRoutes = (app) => {
-  app.use("/api/user/", userRegisterRouter, userLoginRouter, userLogoutRouter);
+  app.use("/api/user/", userRegisterRouter, userLoginRouter, userLogoutRouter, deleteUserRouter);
   app.use("/api/todos/", createTodoRouter, editTodoRouter, deleteTodoRouter);
 };
 
