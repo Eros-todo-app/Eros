@@ -1,0 +1,6 @@
+{
+  "collections": {
+    "users": "Users",
+    "todos": "Todo-lists"
+  }
+}
